@@ -15,7 +15,7 @@
   //AWS credentials
   var username = 'user';
   var password = 'password';
-	
+  var returnedData;	
  
 app        = express();
 app.use(express.static(path.join(__dirname, 'public')));
@@ -295,9 +295,10 @@ app.post('*', function (req, res) {
 					console.log(' *** URL=' + fullUrl + eomPath + '?' +  qsParam);
 					
 					//res.redirect( fullUrl + '?path=' + eomPath);
-					res.redirect(303, fullUrl + eomPath + '/?' +  qsParam);
+					//res.redirect(303, fullUrl + eomPath + '/?' +  qsParam);
 					//res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
-     				//authenticateWithAWS();
+     				authenticateWithAWS();
+					res.send(returnedData);
 					
 					res.end();
 					
@@ -336,7 +337,7 @@ app.post('*', function (req, res) {
 
 function authenticateWithAWS()
 {
-	var qsParam='token='+new Buffer(username + ':' + password).toString('base64');
+	var qsParam='token='+ Buffer.from(username + ':' + password).toString('base64');
 	http.get('http://d3puwp3b6282u6.cloudfront.net/?' + qsParam, (resp) => {
   let data = '';
 
@@ -347,6 +348,7 @@ function authenticateWithAWS()
 
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
+	  returnedData=data;
     console.log(data);
   });
   

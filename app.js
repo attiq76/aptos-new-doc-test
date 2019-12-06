@@ -205,7 +205,7 @@ app.post('*', function (req, res) {
 	
 	
 	var auth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
-	var qsParam='token='+new Buffer(username + ':' + password).toString('base64');
+	var qsParam='token='+ Buffer.from(username + ':' + password).toString('base64');
 	// set aws authentication header
 	res.setHeader('authorization', auth);
 	

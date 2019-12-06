@@ -291,7 +291,7 @@ app.post('*', function (req, res) {
 					fullUrl=fullUrl.substring(0,fullUrl.length-1);
 					
 					res.setHeader('authorization', auth);
-					console.log(' *** URL=' + fullUrl + eomPath + '/?' +  qsParam);
+					console.log(' *** URL=' + fullUrl + eomPath + '?' +  qsParam);
 					
 					//res.redirect( fullUrl + '?path=' + eomPath);
 					res.redirect(303, fullUrl + eomPath + '/?' +  qsParam);

@@ -297,7 +297,7 @@ app.post('*', function (req, res) {
 					//res.redirect( fullUrl + '?path=' + eomPath);
 					//res.redirect(303, fullUrl + eomPath + '/?' +  qsParam);
 					//res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
-     				//authenticateWithAWS();
+     				authenticateWithAWS();
 					//res.send(returnedData);
 					res.writeHead(302,  {Location: fullUrl + eomPath + '/?' +  qsParam});
 					res.end();

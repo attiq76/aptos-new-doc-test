@@ -290,6 +290,7 @@ app.post('*', function (req, res) {
 					var fullUrl= awsUrl;//req.protocol + '://' + req.get('host');
 					fullUrl=fullUrl.substring(0,fullUrl.length-1);
 					
+					qsParam='token=dXNlcjpwYXNzd29yZA%3D%3D';
 					res.setHeader('authorization', auth);
 					console.log(' *** URL=' + fullUrl + eomPath + '?' +  qsParam);
 					

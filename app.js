@@ -350,7 +350,9 @@ function authenticateWithAWS()
   resp.on('end', () => {
 	  returnedData=data;
     console.log(data);
-	resp.redirect('http://d3puwp3b6282u6.cloudfront.net/?' + qsParam);
+	
+	resp.writeHead(302,  {Location: 'http://d3puwp3b6282u6.cloudfront.net/?' + qsParam});
+	
   });
   
   

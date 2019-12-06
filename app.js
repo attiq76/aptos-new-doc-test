@@ -299,7 +299,7 @@ app.post('*', function (req, res) {
 					//res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
      				authenticateWithAWS();
 					//res.send(returnedData);
-					res.writeHead(302,  {Location: 'http://d3puwp3b6282u6.cloudfront.net/?' + qsParam});
+					res.writeHead(302,  {Location: 'https://d3puwp3b6282u6.cloudfront.net/?' + qsParam});
 					res.end();
 					
 				}

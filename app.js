@@ -290,13 +290,11 @@ app.post('*', function (req, res) {
 					var fullUrl= awsUrl;//req.protocol + '://' + req.get('host');
 					fullUrl=fullUrl.substring(0,fullUrl.length-1);
 					
-					qsParam='token=dXNlcjpwYXNzd29yZA%3D%3D';
+					//qsParam='token=dXNlcjpwYXNzd29yZA%3D%3D';
 					res.setHeader('authorization', auth);
 					console.log(' *** URL=' + fullUrl + eomPath + '?' +  qsParam);
 					
-					//res.redirect( fullUrl + '?path=' + eomPath);
-					//res.redirect(303, fullUrl + eomPath + '/?' +  qsParam);
-					//res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
+					
      				authenticateWithAWS();
 					//res.send(returnedData);
 					res.writeHead(302,  {Location: fullUrl + eomPath + '?' +  qsParam});

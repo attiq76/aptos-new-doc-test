@@ -257,7 +257,7 @@ app.post('*', function (req, res) {
 		 
 		
 
-		jwt.verify(jwt_token,  'secret' , { algorithm: 'RS256'}, function(err, decoded) {
+		jwt.verify(jwt_token,  'secret' , { algorithms: ['RS256'],ignoreNotBefore: true}, function(err, decoded) {
 		 // verify JWT token
 		
 		  if(err)

@@ -267,8 +267,8 @@ app.post('*', function (req, res) {
 		   decodedToken=null;
 		  
 		   console.log(awsUrl + 'error.html');
-		   //res.redirect(303, awsUrl + 'error.html');
-		   res.redirect(awsUrl + '/?' + qsParam);
+		   res.redirect(302, awsUrl + 'error.html');
+		   //res.redirect(awsUrl + '/?' + qsParam);
 		   //authenticateWithAWS();
 		   //res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
 		  }
@@ -297,16 +297,16 @@ app.post('*', function (req, res) {
 					//res.redirect( fullUrl + '?path=' + eomPath);
 					//res.redirect(303, fullUrl + eomPath + '/?' +  qsParam);
 					//res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
-     				authenticateWithAWS();
+     				//authenticateWithAWS();
 					//res.send(returnedData);
-					res.writeHead(302,  {Location: 'https://d3puwp3b6282u6.cloudfront.net/?' + qsParam});
+					res.writeHead(302,  {Location: fullUrl + eomPath + '/?' +  qsParam});
 					res.end();
 					
 				}
 				else if(decodedToken==null || decodedToken =='undefined')
 				{
 					jwt_token=null;
-					res.redirect(303, awsUrl+'error.html');
+					res.redirect(302, awsUrl+'error.html');
 					//authenticateWithAWS();
 				}
 				else{

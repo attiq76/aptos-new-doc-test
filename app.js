@@ -299,7 +299,7 @@ app.post('*', function (req, res) {
 					//res.sendFile("aptos_index.html", {"root": path.join(__dirname, 'public')});
      				authenticateWithAWS();
 					//res.send(returnedData);
-					res.writeHead(302,  {Location: fullUrl + eomPath + '/?' +  qsParam});
+					res.writeHead(302,  {Location: fullUrl + eomPath + '?' +  qsParam});
 					res.end();
 					
 				}
